@@ -241,6 +241,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                           password: _userData['password'],
                                         ),
                                       );
+                                      Navigator.of(context).pop();
                                     }
                                   : () {
                                       _formkey.currentState.save();
@@ -251,6 +252,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                           password: _userData['password'],
                                         ),
                                       );
+                                      Navigator.of(context).pop();
                                     },
                               child: Text('Auth Initialized'),
                               style: TextButton.styleFrom(

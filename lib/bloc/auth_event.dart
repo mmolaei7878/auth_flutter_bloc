@@ -16,3 +16,5 @@ class AuthSignUpEvent extends AuthEvent {
   final String password;
   AuthSignUpEvent({this.email, this.password});
 }
+
+class AuthLogoutEvent extends AuthEvent {}

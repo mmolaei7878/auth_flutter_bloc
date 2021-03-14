@@ -63,4 +63,10 @@ class AuthRepository {
     print(extractedUserData);
     return extractedUserData['token'];
   }
+
+  Future logOut() async {
+    final prefs = await SharedPreferences.getInstance();
+    prefs.clear();
+    print('shared clear');
+  }
 }

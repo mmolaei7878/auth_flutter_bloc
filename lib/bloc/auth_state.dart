@@ -7,6 +7,8 @@ class AuthInitialState extends AuthState {}
 
 class AuthInProgressState extends AuthState {}
 
+class AuthLogoutState extends AuthState {}
+
 class AuthSuccedState extends AuthState {
   final String token;
   AuthSuccedState({this.token});

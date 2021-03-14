@@ -29,6 +29,8 @@ class MyApp extends StatelessWidget {
               return AuthScreen();
             } else if (state is AuthSuccedState) {
               return AuthSuccedScreen();
+            } else if (state is AuthLogoutEvent) {
+              return AuthScreen();
             } else {
               return AuthScreen();
             }

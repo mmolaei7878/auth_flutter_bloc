@@ -25,7 +25,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       yield AuthInProgressState();
       final res = await _authrepository.login(event.email, event.password);
       if (res == null) {
-        yield AuthFailedState(error: 'faile to Auth');
+        yield AuthFailedState(error: 'failed to Auth');
       } else {
         yield AuthSuccedState(token: res);
       }
@@ -33,7 +33,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       yield AuthInProgressState();
       final res = await _authrepository.signUp(event.email, event.password);
       if (res == null) {
-        yield AuthFailedState(error: 'faile to Auth');
+        yield AuthFailedState(error: 'failed to Auth');
       } else {
         yield AuthSuccedState(token: res);
       }

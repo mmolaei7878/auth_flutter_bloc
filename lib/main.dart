@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (ctx) => AuthBloc(),
+      create: (ctx) => AuthBloc()..add(UnAuthEvent()),
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(

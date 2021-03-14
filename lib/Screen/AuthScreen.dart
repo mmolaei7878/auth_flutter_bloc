@@ -2,19 +2,8 @@ import 'package:auth_flutter_bloc/bloc/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AuthScreen extends StatefulWidget {
+class AuthScreen extends StatelessWidget {
   static const routeName = '/AuthScreen';
-
-  @override
-  _AuthScreenState createState() => _AuthScreenState();
-}
-
-class _AuthScreenState extends State<AuthScreen> {
-  @override
-  void initState() {
-    super.initState();
-    BlocProvider.of<AuthBloc>(context).add(UnAuthEvent());
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -214,16 +203,24 @@ class _AuthScreenState extends State<AuthScreen> {
                           SizedBox(
                             height: 8,
                           ),
-                        TextFormField(
-                          onSaved: (value) {
-                            _userData['password'] = value;
-                          },
-                          keyboardType: TextInputType.visiblePassword,
-                          textInputAction: TextInputAction.done,
-                          obscureText: true,
-                          decoration: InputDecoration(
-                            labelText: 'Password',
-                            icon: Icon(Icons.lock),
+                        BlocBuilder<AuthBloc, AuthState>(
+                          builder: (ctx, state) => TextFormField(
+                            onSaved: (value) {
+                              _userData['password'] = value;
+                            },
+                            validator: (value) {
+                              if (value.length < 3) {
+                                return 'Too Short';
+                              }
+                              return null;
+                            },
+                            keyboardType: TextInputType.visiblePassword,
+                            textInputAction: TextInputAction.done,
+                            obscureText: true,
+                            decoration: InputDecoration(
+                              labelText: 'Password',
+                              icon: Icon(Icons.lock),
+                            ),
                           ),
                         ),
                         SizedBox(
@@ -234,6 +231,9 @@ class _AuthScreenState extends State<AuthScreen> {
                             return TextButton(
                               onPressed: isSignUp
                                   ? () {
+                                      if (!_formkey.currentState.validate()) {
+                                        return;
+                                      }
                                       _formkey.currentState.save();
                                       BlocProvider.of<AuthBloc>(context).add(
                                         AuthSignUpEvent(
@@ -241,18 +241,15 @@ class _AuthScreenState extends State<AuthScreen> {
                                           password: _userData['password'],
                                         ),
                                       );
-                                      Navigator.of(context).pop();
                                     }
                                   : () {
                                       _formkey.currentState.save();
-
                                       BlocProvider.of<AuthBloc>(context).add(
                                         AuthLoginEvent(
                                           email: _userData['email'],
                                           password: _userData['password'],
                                         ),
                                       );
-                                      Navigator.of(context).pop();
                                     },
                               child: Text('Auth Initialized'),
                               style: TextButton.styleFrom(

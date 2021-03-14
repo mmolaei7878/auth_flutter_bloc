@@ -14,6 +14,7 @@ class AuthLoginEvent extends AuthEvent {
 class AuthSignUpEvent extends AuthEvent {
   final String email;
   final String password;
+  bool get isValidPassword => password.length > 6;
   AuthSignUpEvent({this.email, this.password});
 }
 

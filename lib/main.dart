@@ -1,8 +1,9 @@
 import 'package:auth_flutter_bloc/Screen/AuthSuccedScreen.dart';
-import 'package:auth_flutter_bloc/bloc/auth_bloc.dart';
+import './bloc/AuthBloc/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'Screen/AuthScreen.dart';
+import 'bloc/CameraBloc/camera_bloc.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (ctx) => AuthBloc()..add(UnAuthEvent()),
         ),
+        BlocProvider(create: (ctx) => CameraBloc())
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

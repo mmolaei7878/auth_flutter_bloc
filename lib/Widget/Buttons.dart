@@ -79,7 +79,7 @@ class Buttons extends StatelessWidget {
                         isSignUp ? 'New' : 'WelcomeBack',
                         style: Theme.of(context).textTheme.bodyText1,
                       ),
-                      CameraButton(),
+                      CameraButton()
                     ],
                   ),
                 ),

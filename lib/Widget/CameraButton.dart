@@ -1,4 +1,6 @@
+import 'package:auth_flutter_bloc/bloc/CameraBloc/camera_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CameraButton extends StatelessWidget {
   @override
@@ -16,10 +18,47 @@ class CameraButton extends StatelessWidget {
           ),
         ),
       ),
-      child: IconButton(
-        iconSize: 30.0,
-        icon: Icon(Icons.camera_alt_outlined),
-        onPressed: () {},
+      child: BlocBuilder<CameraBloc, CameraState>(
+        builder: (ctx, state) {
+          if (state is CameraInitial) {
+            return IconButton(
+              iconSize: 30.0,
+              icon: Icon(Icons.camera_alt_outlined),
+              onPressed: () {
+                BlocProvider.of<CameraBloc>(context).add(OpenCameraEvent());
+              },
+            );
+          } else if (state is CameraInProgress) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          } else if (state is CameraSuccedState) {
+            return GestureDetector(
+              onTap: () {
+                // BlocProvider.of<CameraBloc>(context).add(OpenCameraEvent());
+                BlocProvider.of<CameraBloc>(context)
+                    .add(StartUploadImageEvent());
+              },
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(40),
+                child: Image.file(
+                  state.image,
+                  width: 65,
+                  height: 65,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            );
+          } else {
+            return IconButton(
+              iconSize: 30.0,
+              icon: Icon(Icons.camera_alt_outlined),
+              onPressed: () {
+                BlocProvider.of<CameraBloc>(context).add(OpenCameraEvent());
+              },
+            );
+          }
+        },
       ),
     );
   }

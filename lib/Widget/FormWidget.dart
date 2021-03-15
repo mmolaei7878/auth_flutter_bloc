@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:auth_flutter_bloc/bloc/auth_bloc.dart';
+import '../bloc/AuthBloc/auth_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../Widget/WidgetsFile.dart';
 

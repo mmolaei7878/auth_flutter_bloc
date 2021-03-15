@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:auth_flutter_bloc/Repository/AuthRepository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:image_picker/image_picker.dart';
 part 'auth_event.dart';
 part 'auth_state.dart';
 

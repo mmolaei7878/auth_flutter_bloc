@@ -1,16 +1,11 @@
-# auth_flutter_bloc
+# Auth_Flutter_Bloc
+# StateManagment : flutter_bloc
+## Features : Authentication, Pick Image, Save Image
+### packages : path(image name), path_provider(app directory),image_picker(pick image),shared_preferences(store & retrive => token & imagepath)
 
-A new Flutter project.
+## ui on dribbble : https://dribbble.com/shots/10168862-trip-login-and-registration/attachments/2113903?mode=media
 
-## Getting Started
+| <img src="https://user-images.githubusercontent.com/79679398/111389213-d24ef000-86c5-11eb-88d8-332b54f0bff1.jpg" width="250"> |
+<img src="https://user-images.githubusercontent.com/79679398/111389222-d418b380-86c5-11eb-94f5-858fdb99f723.jpg" width="250"> |
+<img src="https://user-images.githubusercontent.com/79679398/111389230-d844d100-86c5-11eb-9fec-095fd2ec2815.jpg" width="250"> |
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

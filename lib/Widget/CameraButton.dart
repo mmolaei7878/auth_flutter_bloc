@@ -35,18 +35,22 @@ class CameraButton extends StatelessWidget {
           } else if (state is CameraSuccedState) {
             return GestureDetector(
               onTap: () {
-                // BlocProvider.of<CameraBloc>(context).add(OpenCameraEvent());
-                BlocProvider.of<CameraBloc>(context)
-                    .add(StartUploadImageEvent());
+                BlocProvider.of<CameraBloc>(context).add(OpenCameraEvent());
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(40),
-                child: Image.file(
-                  state.image,
-                  width: 65,
-                  height: 65,
-                  fit: BoxFit.cover,
-                ),
+                child: state.image == null
+                    ? Image.asset(
+                        'lib/asset/imageholder.png',
+                        width: 45,
+                        height: 45,
+                      )
+                    : Image.file(
+                        state.image,
+                        width: 65,
+                        height: 65,
+                        fit: BoxFit.cover,
+                      ),
               ),
             );
           } else {

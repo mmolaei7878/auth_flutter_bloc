@@ -5,6 +5,6 @@ abstract class CameraEvent {}
 
 class OpenCameraEvent extends CameraEvent {}
 
-class StartUploadImageEvent extends CameraEvent {}
+class GetSavedImage extends CameraEvent {}
 
-class GetUploadedImageEvent extends CameraEvent {}
+class DeleteSavedImage extends CameraEvent {}

@@ -35,15 +35,6 @@ class FormWidget extends StatelessWidget {
             SizedBox(
               height: 8,
             ),
-          /*  if (isSignUp)
-                          TextFormField(
-                            keyboardType: TextInputType.name,
-                            textInputAction: TextInputAction.next,
-                            decoration: InputDecoration(
-                              labelText: 'Username',
-                              icon: Icon(Icons.person),
-                            ),
-                          ), */
           if (isSignUp)
             SizedBox(
               height: 8,
@@ -53,7 +44,7 @@ class FormWidget extends StatelessWidget {
               userData['password'] = value;
             },
             validator: (value) {
-              if (value.length < 3) {
+              if (value.length < 6) {
                 return 'Too Short';
               }
               return null;

@@ -31,7 +31,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
     } else if (event is AuthSignUpEvent) {
       yield AuthInProgressState();
-      final res = await _authrepository.signUp(event.email, event.password);
+      final res = await _authrepository.signUp(
+        event.email,
+        event.password,
+      );
 
       if (res == null) {
         yield AuthFailedState(error: 'failed to Auth');

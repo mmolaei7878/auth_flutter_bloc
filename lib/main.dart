@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (ctx) => AuthBloc()..add(UnAuthEvent()),
         ),
-        BlocProvider(create: (ctx) => CameraBloc())
+        BlocProvider(create: (ctx) => CameraBloc()..add(GetSavedImage()))
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

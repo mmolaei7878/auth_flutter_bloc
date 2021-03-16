@@ -49,11 +49,11 @@ class Buttons extends StatelessWidget {
   }
 
   showSheet({BuildContext context, bool isSignUp}) {
-    final deviceSize = MediaQuery.of(context).size;
     final _formkey = GlobalKey<FormState>();
     Map<String, String> _userData = {
       'email': '',
       'password': '',
+      'username': '',
     };
     return showModalBottomSheet(
       backgroundColor: Colors.transparent,

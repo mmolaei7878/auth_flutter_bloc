@@ -28,7 +28,9 @@ class AuthSuccedScreen extends StatelessWidget {
                     ),
                   );
                 } else
-                  return Container();
+                  return Container(
+                    color: Colors.red,
+                  );
               },
             ),
             SizedBox(

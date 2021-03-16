@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthRepository {
-  final String apiKey = 'AIzaSyDexn10OnJSWT1ZRLDHZKeKqoqX8xN1HXY';
+  final String apiKey = '<<Your Api Key>>';
 
   Future<String> signUp(String email, String password) async {
     print('signUp From Repo');

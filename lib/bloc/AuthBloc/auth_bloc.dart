@@ -19,7 +19,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       if (tokenSaved == null) {
         yield AuthInitialState();
       } else {
-        yield AuthSuccedState(token: tokenSaved);
+        yield AuthSuccedState(
+          token: tokenSaved,
+        );
       }
     } else if (event is AuthLoginEvent) {
       yield AuthInProgressState();

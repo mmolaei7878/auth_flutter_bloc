@@ -14,9 +14,9 @@ class CameraBloc extends Bloc<CameraEvent, CameraState> {
   CameraBloc() : super(CameraInitial());
   File image;
   final imagePicker = ImagePicker();
-  Future<File> getCameraImage() async {
+  Future<File> getCameraImage(ImageSource source) async {
     final pickedImage = await imagePicker.getImage(
-      source: ImageSource.camera,
+      source: source,
       maxWidth: 600,
       maxHeight: 600,
     );
@@ -49,7 +49,7 @@ class CameraBloc extends Bloc<CameraEvent, CameraState> {
   ) async* {
     if (event is OpenCameraEvent) {
       yield CameraInProgress();
-      final image = await getCameraImage();
+      final image = await getCameraImage(event.imageSource);
       yield CameraSuccedState(image: image);
       await saveImage(image);
     } else if (event is GetSavedImage) {
